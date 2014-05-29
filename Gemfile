@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
-
-# Specify your gem's dependencies in sms_api.gemspec
+source "http://ruby.taobao.org"
+  gem "mongoid"
+  gem "bson_ext"
 gemspec

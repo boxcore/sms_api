@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SmsApi::VERSION
   spec.authors       = ["liuzelei"]
   spec.email         = ["liuzelei@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{短信接口}
+  spec.summary       = %q{短信接口业务}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -19,5 +19,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "rspec", "~> 2.6"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec-rails"
+
+  spec.add_runtime_dependency 'rails'
+  spec.add_runtime_dependency "bson"
+  spec.add_runtime_dependency "mongoid"
 end
