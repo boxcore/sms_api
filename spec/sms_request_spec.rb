@@ -19,5 +19,4 @@ describe 'test sms request' do
     p SmsApi::Models::SmsLog.first
     true.should be true
   end
- 
 end
