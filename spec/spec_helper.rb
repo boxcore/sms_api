@@ -35,17 +35,12 @@ CONFIG = {
     }
   }
 }
-
-SERVER   = "http://114.80.116.161:6666/sms.aspx"
-USERID   = "118"
-ACCOUNT  = "GG-hy"
-PASSWORD = "1234567890"
   
-SmsApi.configure do |config|
-  config.server = SERVER
-  config.user_id = USERID
-  config.account  = ACCOUNT
-  config.password = PASSWORD
+SmsApi.setup do |config|
+  config.server = "http://114.80.116.161:6666/sms.aspx"
+  config.username = "118"
+  config.account  = "GG-hy"
+  config.password = "1234567890"
 end
 
 

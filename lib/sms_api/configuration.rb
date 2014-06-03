@@ -1,40 +1,36 @@
+# encoding: utf-8
 module SmsApi
-
-  class << self
-
-    attr_accessor :configuration
-
-    def config
-      self.configuration ||= Configuration.new
-    end
-
-    def configure
-      yield config if block_given?
-    end
-
-  end
-
   class Configuration
-    attr_accessor :server,:user_id,:account, :password
-  end
-
-  module ConfigurationHelpers
-   
-    def sms_server
-      @sms_server ||= SmsApi.config.server
+    def server
+      @server ||= "http://test_server.com"
     end
 
-    def sms_user_id
-      @sms_user_id ||= SmsApi.config.user_id
+    def server=(server)
+      @server = server
     end
 
-    def sms_account
-      @sms_account ||= SmsApi.config.account
+    def username
+      @username ||= "test_user"
     end
 
-    def sms_password
-      @sms_password ||= SmsApi.config.password
+    def username=(username)
+      @username = username
     end
 
+    def account
+      @account ||= "test_account"
+    end
+
+    def account=(account)
+      @account = account
+    end
+
+    def password
+      @password ||= "test_password"
+    end
+
+    def password=(password)
+      @password = password
+    end
   end
 end

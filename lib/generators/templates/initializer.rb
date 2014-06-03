@@ -1,6 +1,7 @@
-SmsApi.configure do |config|
+# encoding: utf-8
+SmsApi.setup do |config|
   #config.server = ""
-  #config.user_id = ""
+  #config.username = ""
   #config.account = ""
   #config.password = ""
 end

@@ -1,15 +1,18 @@
+# encoding: utf-8
 require 'net/http'
+require 'singleton'
+
 module SmsApi
   class Service
-    extend ConfigurationHelpers
+    include Singleton
 
-    def self.send_msg(mobile,content)
-      uri     = URI(sms_server)
+    def send_message(mobile, content)
+      uri     = URI(SmsApi.config.server)
       params  = {
                   action: "send",
-                  userid: sms_user_id,
-                  account: sms_account,
-                  password: sms_password,
+                  userid: SmsApi.config.username,
+                  account: SmsApi.config.account,
+                  password: SmsApi.config.password,
                   mobile: mobile,
                   content: content,
                   sendTime: nil,
@@ -22,7 +25,7 @@ module SmsApi
       log = SmsApi::Models::SmsLog.new( request_at: request_at,
                                         request_body: params.to_json,
                                         response_body: res.body ,
-                                        response_at:Time.now,
+                                        response_at: Time.now,
                                         response_status:res.code)
       log.save
       return res.is_a?(Net::HTTPSuccess)
